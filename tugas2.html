@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="style.css">
+    <style>
+input[type=text],
+select {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+button {
+background-color: blue;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+background-color: #45a049;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+    <body>
+        <h3>Hitung Nilai Rata-rata</h3>
+        <div>
+            <label for="nama">Nama</label>
+            <input
+                type="text"
+                id="nama"
+                name="firstname"
+                placeholder="Nama"
+            >
+            <br>
+            <label for="matkul">Matkul</label>
+            <input
+                type="text"
+                id="matkul"
+                name="lastname"
+                placeholder="Matkul"
+            >
+            <br>
+            <label for="grade">Grade</label>
+            <select id="grade" name="grade">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+            <button onclick="result()">Submit</button>
+            <table id="hasil" class="table"></table>
+        </div>
+    </body>
+</html>
+<script>
+function result() {
+var nama = document.getElementById('nama').value;
+var matkul = document.getElementById('matkul').value;
+var grade = document.getElementById('grade').value;
+
+var result;
+
+if(grade == "A"){
+    result = 4.0;
+}else if (grade == "B"){
+    result = 3.0
+}else if(grade == "C"){
+    result = 2.0;
+}else if(grade == "D"){
+    result = 1.0;
+}else if(grade == "E"){
+    result = 0.0;
+}else{
+    result = 0.0;
+}
+
+tbl = document.getElementById('hasil')
+tbl.innerHTML = `  <thead>
+  <tr>
+    <th>Nama</th>
+    <th>Mata Kuliah</th>
+    <th>Grade</th>
+    <th>Nilai Rata-Rata</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>`+nama+`</td>
+    <td>`+matkul+`</td>
+    <td>`+grade+`</td>
+    <td>`+result+`</td>
+  </tr>
+  </tbody>`
+}
+</script>
